@@ -1,0 +1,9 @@
+vim.lsp.enable({
+	"lua_ls",
+	"rust_analyzer",
+	"pyright",
+	"ruff",
+	"clangd",
+	"taplo",
+	"yamlls",
+})
