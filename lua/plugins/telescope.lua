@@ -7,30 +7,22 @@ return {
 		keys = {
 			{
 				"<leader>ff",
-				function()
-					require("telescope.builtin").find_files()
-				end,
+				"<cmd>Telescope find_files<cr>",
 				desc = "Find Files",
 			},
 			{
 				"<leader>fg",
-				function()
-					require("telescope.builtin").live_grep()
-				end,
+				"<cmd>Telescope live_grep<cr>",
 				desc = "Live Grep",
 			},
 			{
 				"<leader>fb",
-				function()
-					require("telescope.builtin").buffers()
-				end,
+				"<cmd>Telescope buffers<cr>",
 				desc = "Buffers",
 			},
 			{
 				"<leader>fh",
-				function()
-					require("telescope.builtin").help_tags()
-				end,
+				"<cmd>Telescope help_tags<cr>",
 				desc = "Help Tags",
 			},
 		},
