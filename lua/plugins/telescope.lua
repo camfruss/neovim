@@ -6,6 +6,16 @@ return {
 		},
 		keys = {
 			{
+				"<leader>fp",
+				"<cmd>Telescope search_history<cr>",
+				desc = "List Search History (p for previous)",
+			},
+			{
+				"<leader>fo",
+				"<cmd>Telescope oldfiles<cr>",
+				desc = "List old files",
+			},
+			{
 				"<leader>ff",
 				"<cmd>Telescope find_files<cr>",
 				desc = "Find Files",

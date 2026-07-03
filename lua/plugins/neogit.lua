@@ -8,6 +8,11 @@ return {
 	},
 	opts = {
 		kind = "floating",
+		mappings = {
+			status = {
+				["<esc>"] = "Close",
+			},
+		},
 	},
 	cmd = "Neogit",
 	keys = {
