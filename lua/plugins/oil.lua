@@ -5,9 +5,11 @@ return {
 	config = function()
 		require("oil").setup({
 			default_file_explorer = true,
+			keymaps = {
+				["g."] = "actions.toggle_hidden",
+			},
 		})
 
-		vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory in Oil" })
 	end,
 }
