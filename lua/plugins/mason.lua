@@ -15,7 +15,8 @@ return {
 			ensure_installed = {
 				-- lsps
 				"lua-language-server",
-				"rust-analyzer",
+				-- rust-analyzer comes from rustup, so its version always matches
+				-- the active toolchain's cargo (mason's copy drifts out of sync)
 				"pyright",
 				"ruff",
 				"clangd",
@@ -27,6 +28,8 @@ return {
 				"clang-format",
 				"yamlfmt",
 				"prettier",
+				-- nix formatter: alejandra (mason's nixfmt package is linux_x64-only)
+				"alejandra",
 			},
 			auto_update = false,
 			run_on_start = true,

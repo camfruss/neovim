@@ -20,6 +20,7 @@ return {
 			c = { "clang-format" },
 			cpp = { "clang-format" },
 			toml = { "taplo" },
+			nix = { "alejandra" },
 			yaml = { "yamlfmt" },
 			markdown = { "prettier" },
 		},
