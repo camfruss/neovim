@@ -79,9 +79,16 @@ return {
 
 			-- Code / LSP
 			{
-				"<leader>ds",
+				"<leader>bf",
 				"<cmd>Telescope lsp_document_symbols<cr>",
-				desc = "Code symbols (this file)",
+				desc = "Buffer symbols (this file)",
+			},
+			{
+				"<leader>fs",
+				-- dynamic_workspace_symbols queries the server as you type, so it
+				-- searches the whole project rather than filtering one fixed batch.
+				"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+				desc = "Find symbols (whole project)",
 			},
 			{
 				"<leader>fr",

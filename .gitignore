@@ -1,0 +1,3 @@
+# Machine-specific per-repo LSP tuning: local/<repo>/<server>.lua
+# See lsp/rust_analyzer.lua for how these are discovered.
+local/

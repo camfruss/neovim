@@ -72,6 +72,29 @@ end, { desc = "Set cwd to current file's/oil folder" })
 
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<cr>", { desc = "Close tab" })
 
+-- Comment toggle on ctrl-/. Neovim 0.10+ ships the gc operator, so this only
+-- needs a nicer key -- hence remap = true, to reach that built-in mapping.
+-- Terminals disagree on what ctrl-/ emits: <C-_> is the traditional byte, while
+-- kitty and friends send a real <C-/> via the CSI-u protocol. Bind both.
+for _, lhs in ipairs({ "<C-_>", "<C-/>" }) do
+	vim.keymap.set("n", lhs, "gcc", { remap = true, desc = "Toggle comment (line)" })
+	vim.keymap.set("x", lhs, "gc", { remap = true, desc = "Toggle comment (selection)" })
+end
+
+-- <Esc> dismisses a hover/diagnostic float without moving the cursor. Neovim
+-- records the float on the buffer it was opened from, so this closes exactly that
+-- window and leaves telescope, fidget and friends alone. With no float open, fall
+-- back to clearing search highlight.
+vim.keymap.set("n", "<Esc>", function()
+	local win = vim.b.lsp_floating_preview
+	if win and vim.api.nvim_win_is_valid(win) then
+		vim.api.nvim_win_close(win, true)
+		vim.b.lsp_floating_preview = nil
+		return
+	end
+	vim.cmd("nohlsearch")
+end, { desc = "Dismiss float / clear search highlight" })
+
 -- Show the diagnostics for the current line. Press twice to enter the float,
 -- then scroll or yank from it.
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Line diagnostics (float)" })

@@ -22,6 +22,11 @@ return {
 				"clangd",
 				"taplo",
 				"yaml-language-server",
+				-- JetBrains Kotlin LSP; covers Jetpack Compose. Bundles its own
+				-- JetBrains Runtime, so mason fetches a per-platform build.
+				"kotlin-lsp",
+				-- sourcekit-lsp is not a mason package: it ships with Xcode on macOS
+				-- and with the Swift toolchain on Linux.
 
 				-- formatters
 				"stylua",
